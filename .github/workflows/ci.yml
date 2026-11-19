@@ -19,7 +19,7 @@ jobs:
         image: postgres:16-alpine
         env:
           POSTGRES_USER: sentinelgrid
-          POSTGRES_PASSWORD: sentinelgrid
+          POSTGRES_PASSWORD: ci_test_password
           POSTGRES_DB: sentinelgrid
         ports:
           - 5432:5432
@@ -50,7 +50,7 @@ jobs:
 
       - name: Test (pytest)
         env:
-          DATABASE_URL: postgresql+asyncpg://sentinelgrid:sentinelgrid@localhost:5432/sentinelgrid
+          DATABASE_URL: postgresql+asyncpg://sentinelgrid:ci_test_password@localhost:5432/sentinelgrid
         run: pytest --cov=app --cov-report=xml -q
 
   frontend:

@@ -2,15 +2,15 @@ services:
   postgres:
     image: postgres:16-alpine
     environment:
-      POSTGRES_USER: sentinelgrid
-      POSTGRES_PASSWORD: sentinelgrid
-      POSTGRES_DB: sentinelgrid
+      POSTGRES_USER: ${POSTGRES_USER:-sentinelgrid}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: ${POSTGRES_DB:-sentinelgrid}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U sentinelgrid"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sentinelgrid}"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -20,7 +20,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      DATABASE_URL: postgresql+asyncpg://sentinelgrid:sentinelgrid@postgres:5432/sentinelgrid
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-sentinelgrid}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-sentinelgrid}
       DEBUG: "false"
       CORS_ORIGINS: '["http://localhost:5173","http://localhost:80"]'
     ports:

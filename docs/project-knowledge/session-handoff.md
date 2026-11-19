@@ -22,7 +22,7 @@ _Last updated: 2026-11-19_
 - [x] Zustand simulation store
 - [x] Docker Compose (postgres + backend + frontend)
 - [x] GitHub Actions CI (backend lint/test + frontend type-check/build)
-- [x] `.env.example`, `.gitignore`, `CLAUDE.md`
+- [x] `.env.example`, `.gitignore`, `DEV.md`
 
 ### In Progress
 

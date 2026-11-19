@@ -1,4 +1,4 @@
-# SentinelGrid — Project CLAUDE.md
+# SentinelGrid — Developer Notes
 
 ## Session Startup Protocol
 
