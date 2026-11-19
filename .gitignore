@@ -35,7 +35,7 @@ frontend/.vite/
 .vscode/
 *.swp
 
-# AI assistant config (local only)
+# Local tooling config
 .claude/
 
 # Graphify output (optional — commit graph.json to share with team)
