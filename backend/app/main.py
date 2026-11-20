@@ -4,7 +4,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import health
+import app.models  # noqa: F401 — registers all models with Base.metadata
+from app.api.routes import environments, health, resources
 from app.config import settings
 
 
@@ -28,3 +29,5 @@ app.add_middleware(
 )
 
 app.include_router(health.router, prefix="/api/v1", tags=["health"])
+app.include_router(environments.router, prefix="/api/v1")
+app.include_router(resources.router, prefix="/api/v1")

@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { Activity, LayoutDashboard, Shield, Terminal } from "lucide-react";
+import { Activity, Cloud, LayoutDashboard, Shield, Terminal } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 const navItems = [
   { to: "/", icon: <LayoutDashboard className="w-4 h-4" />, label: "Dashboard" },
+  { to: "/environments", icon: <Cloud className="w-4 h-4" />, label: "Environments" },
   { to: "/studio", icon: <Terminal className="w-4 h-4" />, label: "Sim Studio" },
   { to: "/incidents", icon: <Shield className="w-4 h-4" />, label: "Incidents" },
   { to: "/events", icon: <Activity className="w-4 h-4" />, label: "Events" },

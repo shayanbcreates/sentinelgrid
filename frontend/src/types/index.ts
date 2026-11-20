@@ -1,4 +1,36 @@
-// Severity levels aligned with AWS Security Hub
+// --- Virtual AWS Environment API types (Phase 2) ---
+
+export interface CloudEnvironmentRecord {
+  id: string;
+  name: string;
+  description: string | null;
+  region: string;
+  state: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CloudResourceRecord {
+  id: string;
+  environment_id: string;
+  resource_type: string;
+  name: string;
+  region: string;
+  state: string;
+  properties: Record<string, unknown> | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ResourceRelationshipRecord {
+  id: string;
+  source_id: string;
+  target_id: string;
+  relationship_type: string;
+  created_at: string;
+}
+
+// --- Severity levels aligned with AWS Security Hub ---
 export type Severity = "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "INFORMATIONAL";
 
 // Virtual cloud resource types
