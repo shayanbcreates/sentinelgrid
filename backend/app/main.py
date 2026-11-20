@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-import app.models  # noqa: F401 — registers all models with Base.metadata
+from app import models as _models  # noqa: F401 — registers all models with Base.metadata
 from app.api.routes import environments, health, resources
 from app.config import settings
 
